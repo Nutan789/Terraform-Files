@@ -1,8 +1,11 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "us-eat-1"
 }
 
-resource "aws_instance" "instance1" {
-  ami = "ami-0e86e20dae9224db8"
+module "ec2_instance" {
+  source = "./modules/"
+  ami_value = "ami-0e86e20dae9224db8"
   instance_type = "t2.micro"
+  subnet_id = "subnet-08c02ca24a2b07c40"
+
 }
